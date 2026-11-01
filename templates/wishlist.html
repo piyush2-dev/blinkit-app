@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wishlist – Blinkit</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head><body data-page="wishlist">
+<header class="navbar">
+  <a class="brand" href="/"><span class="logo">b</span><span class="brand-name">blink<b>it</b></span></a>
+  <input id="search" class="search" type="search" placeholder="Search for milk, bread, eggs..." aria-label="Search products">
+  <nav class="nav-icons">
+    <a href="/wishlist" aria-label="Wishlist">♥ <span class="badge" id="wishCount">0</span></a>
+    <a href="/cart" class="cart-btn" aria-label="Cart">🛒 Cart <span class="badge" id="cartCount">0</span></a>
+  </nav>
+</header>
+<section class="container">
+  <h2>Your wishlist</h2>
+  <div class="grid" id="wishGrid"></div>
+  <p id="empty" class="muted" hidden>Nothing saved yet. Tap the ♥ on any product.</p>
+</section>
+<div id="toast" class="toast"></div>
+<script src="/static/js/app.js"></script>
+</body></html>

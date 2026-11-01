@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Database Viewer – Blinkit</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head><body>
+<header class="navbar">
+  <a class="brand" href="/"><span class="logo">b</span><span class="brand-name">blink<b>it</b></span></a>
+  <span class="muted" style="flex:1">Live data from PostgreSQL · blinkit_db</span>
+  <button class="btn-primary" onclick="location.reload()">Refresh Data</button>
+</header>
+<section class="container">
+  <h2>Products ({{ products|length }} rows)</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Product ID</th><th>Name</th><th>Price</th><th>Quantity</th></tr>
+    {% for p in products %}<tr><td>{{ p.product_id }}</td><td>{{ p.name }}</td><td>₹{{ p.price }}</td><td>{{ p.quantity }}</td></tr>{% endfor %}
+  </table></div>
+
+  <h2>Cart Items ({{ cart|length }} rows)</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Cart ID</th><th>Product ID</th><th>Product name</th><th>Price</th><th>Quantity</th><th>Created</th></tr>
+    {% for c in cart %}<tr><td>{{ c.cart_id }}</td><td>{{ c.product_id }}</td><td>{{ c.name }}</td><td>₹{{ c.price }}</td><td>{{ c.quantity }}</td><td>{{ c.created_at }}</td></tr>
+    {% else %}<tr><td colspan="6" class="muted">Cart table is empty.</td></tr>{% endfor %}
+  </table></div>
+
+  <h2>Wishlist Items ({{ wishlist|length }} rows)</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Wishlist ID</th><th>Product ID</th><th>Product name</th><th>Price</th><th>Created</th></tr>
+    {% for w in wishlist %}<tr><td>{{ w.wishlist_id }}</td><td>{{ w.product_id }}</td><td>{{ w.name }}</td><td>₹{{ w.price }}</td><td>{{ w.created_at }}</td></tr>
+    {% else %}<tr><td colspan="5" class="muted">Wishlist table is empty.</td></tr>{% endfor %}
+  </table></div>
+</section>
+</body></html>

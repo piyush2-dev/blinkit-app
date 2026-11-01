@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blinkit – Groceries in minutes</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head><body data-page="home">
+<header class="navbar">
+  <a class="brand" href="/"><span class="logo">b</span><span class="brand-name">blink<b>it</b></span></a>
+  <input id="search" class="search" type="search" placeholder="Search for milk, bread, eggs..." aria-label="Search products">
+  <nav class="nav-icons">
+    <a href="/wishlist" aria-label="Wishlist">♥ <span class="badge" id="wishCount">0</span></a>
+    <a href="/cart" class="cart-btn" aria-label="Cart">🛒 Cart <span class="badge" id="cartCount">0</span></a>
+  </nav>
+</header>
+<section class="hero" id="home">
+  <div>
+    <h1>Groceries delivered in 10 minutes</h1>
+    <p>Fresh produce, dairy and daily essentials, one tap away.</p>
+    <a class="btn-primary" href="#products">Start shopping</a>
+  </div>
+  <div class="hero-art">🥛🍞🍌</div>
+</section>
+<section class="container">
+  <h2>Shop by category</h2>
+  <div class="categories" id="categories"></div>
+  <h2 id="products">Products</h2>
+  <div class="grid" id="productGrid"></div>
+  <p id="empty" class="muted" hidden>No products match your search.</p>
+</section>
+<div id="toast" class="toast"></div>
+<script src="/static/js/app.js"></script>
+</body></html>
