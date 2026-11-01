@@ -9,16 +9,23 @@ app = Flask(__name__)
 
 
 def get_db():
-    """The ONE database connection function. Every route calls this."""
+    """The ONE database connection function."""
+    database_url = os.getenv("DATABASE_URL")
+
+    if database_url:
+        return psycopg2.connect(
+            database_url,
+            cursor_factory=psycopg2.extras.RealDictCursor
+        )
+
     return psycopg2.connect(
         host=os.getenv("DB_HOST", "localhost"),
         port=os.getenv("DB_PORT", "5432"),
         dbname=os.getenv("DB_NAME", "blinkitapp_db"),
         user=os.getenv("DB_USER", "postgres"),
-        password=os.getenv("DB_PASSWORD", " "),
-        cursor_factory=psycopg2.extras.RealDictCursor,
+        password=os.getenv("DB_PASSWORD", ""),
+        cursor_factory=psycopg2.extras.RealDictCursor
     )
-
 
 def run(sql, params=(), fetch=False, one=False):
     """Run one parameterized SQL query. Commits on success, rolls back on error."""
